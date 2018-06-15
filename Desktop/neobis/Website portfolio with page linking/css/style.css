@@ -1,0 +1,36 @@
+.main{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+h1{
+    padding-top: 10px;
+    font-family:Slabo;
+    text-decoration:underline
+}
+h4{
+    margin-top: 40px; 
+    font-family:Slabo;
+}
+.work1{
+    background-color:   #F7D49E;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family:Slabo;
+
+}
+img{
+    max-height: 300px;
+    margin:10px 10px 10px 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+}
+.work2{
+ padding-top: 10px;
+    padding-bottom: 10px;
+    font-family:Slabo;
+}
+body{
+    margin-left: 40px;
+    margin-right: 40px;
+}
