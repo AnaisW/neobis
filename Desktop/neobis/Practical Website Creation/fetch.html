@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>
+		<button onClick="people()">People</button>
+		<ol id="list">
+	</div>
+
+	<button onClick="img()">Image</button>
+
+
+	<input name="searchTxt" type="text" maxlength="512" id="searchTxt" class="searchField"/>
+    <button onClick="giphy()">go</button>
+
+  
+</ol>
+<script type="text/javascript">
+	 function people() {
+
+            var people;
+            const res = fetch('https://gist.githubusercontent.com/raine/cd11686e0b8a4a43bbf6/raw/people.json')
+             .then(response=>response.json())
+             .then(s=>people=s)
+             .then(rend);
+             function rend(){
+             for(i=0;i<10;i++){	
+         var newLi = document.createElement('li');
+  		newLi.innerHTML = people[i].name+' city:'+people[i].city;
+  		list.insertBefore(newLi, list.children[i]); 
+		}
+         }
+	}
+         
+     function img(){
+     	var image;
+     	const res = fetch('https://raw.githubusercontent.com/manolo/v-upload-gallery/master/ajax/images.json')
+             .then(response=>response.json())
+             .then(s=>image=s)
+             .then(rend);
+          function rend()
+          {
+          	for(i =0; i<10; i++){
+          		var oImg = document.createElement("img");
+				oImg.setAttribute('src', image[i].src);
+				oImg.setAttribute('alt', 'na');
+				oImg.setAttribute('height', '200px');
+				oImg.setAttribute('width', '200px');
+				document.body.appendChild(oImg);
+
+          	}
+          }
+     } 
+	
+
+
+	var rend;
+var site='http://api.giphy.com/v1/gifs/search?q={';
+var api='}&api_key=dc6zaTOxFJmzC';
+function giphy() {
+    var q=document.getElementById("searchTxt").value;
+    fetch(site+q+api).then(data=>data.json()).then(resp=>window.rend=resp.data);
+    rend.forEach(function(pochti) {
+        var ifrm = document.createElement("iframe");
+        ifrm.setAttribute("src",pochti.embed_url);
+        ifrm.style.width = "640px";
+        ifrm.style.height = "480px";
+        document.body.appendChild(ifrm);
+    });
+}
+
+</script>
+</body>
+</html>
